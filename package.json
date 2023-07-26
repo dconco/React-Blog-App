@@ -1,5 +1,5 @@
 {
-  "name": "Blog Web App || ReactJS",
+  "name": "Blog Web App",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,9 @@
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "author": "Dave Conco",
+  "title": "Blog Web App || ReactJS",
+  "description": "Beautiful Blog Web Land Page created with ReactJS. By Dave Conco.",
   "dependencies": {
     "axios": "^1.4.0",
     "localforage": "^1.10.0",
