@@ -5,7 +5,7 @@ I created this Simple Website for 3 purpose:
 -   In learning more about Axios 
 -   in making for example
 
-You can try running the `index.html` from the `dist` folder
+You can try running the `index.html` from the `build` folder
 You can clone it by executing this on your terminal
 ```bash
 git clone github.com/dconco/react-blog-app.git
