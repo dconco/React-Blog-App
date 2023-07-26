@@ -1,0 +1,24 @@
+* {
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: smooth;
+}
