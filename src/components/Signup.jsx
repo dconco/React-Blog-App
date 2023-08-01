@@ -67,7 +67,7 @@ export default function Signup() {
                                     <div className='input'>
                                         <Icon icon='mdi:user-outline' className='iconify' />
                                         <input id='fullname' name='fullname' type='text' onChange={(e) => inputChange(e.target)}
-                                        value={input.email} placeholder='Enter Fullname' />
+                                        value={input.fullname} placeholder='Enter Fullname' />
                                     </div>
                                 </div>
                                 
