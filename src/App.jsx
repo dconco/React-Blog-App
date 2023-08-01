@@ -14,6 +14,7 @@ import "./App.css";
 import Home from "./index";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import FileUploader from "./components/Upload";
 import NotFound from "./components/ErrorPage";
 
 export default function App() {
@@ -50,6 +51,7 @@ export default function App() {
                     <Route path="index?/" element={<Home />} />
                     <Route path="login" element={<Login />} />
                     <Route path="signup" element={<Signup />} />
+                    <Route path="upload" element={<FileUploader />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
                 
