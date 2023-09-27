@@ -113,7 +113,7 @@ export default function Signup() {
                             </div>
                             
                             <div className='other'>
-                                <span>Don't have an Account?</span>
+                                <span>Already have an Account?</span>
                                 <Link to={`/login`} className='reg'> Login</Link>
                             </div>
                         </form>
