@@ -10,12 +10,12 @@ import Logo from "../assets/icon.jpg";
 import Auth from "../assets/auth.png";
 
 export default function Login() {
-    const [input, setInputs] = useState({});
+    const [input, setInput] = useState({});
     
     const inputChange = (event) => {
         const name = event.name;
         const value = event.value;
-        setInputs(values => ({...values, [name]: value}))
+        setInput(values => ({...values, [name]: value}))
     }
     
     const submit = (event) => {
@@ -83,7 +83,7 @@ export default function Login() {
                             
                             <div className='other'>
                                 <span>Don't have an Account?</span>
-                                <Link to={`/signup`} className='reg'> Register</Link>
+                                <Link to={`/register`} className='reg'> Register</Link>
                             </div>
                         </form>
                     </div>

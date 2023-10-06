@@ -2,9 +2,6 @@
     outline: none;
     box-sizing: border-box;
     text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -21,4 +18,8 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     overscroll-behavior: smooth;
+}
+
+button {
+    cursor: pointer;
 }

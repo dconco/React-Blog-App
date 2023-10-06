@@ -1,9 +1,6 @@
-<?php 
-    header('Content-Type: application/json; charset=utf-8');
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: PUT, GET, POST");
-    
-    $response = array();
+<?php
+
+$response = array();
     $upload_dir = '/uploads/';
     $server_url = 'http://127.0.0.1:8000';
     

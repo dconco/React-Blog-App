@@ -13,7 +13,7 @@ import "./App.css";
 
 import Home from "./index";
 import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Register from "./components/Register";
 import FileUploader from "./components/Upload";
 import NotFound from "./components/ErrorPage";
 
@@ -27,7 +27,7 @@ export default function App() {
         }
     })
     
-    const dev = () => {
+    const console = () => {
         return (
             <>
                 <h3>Welcome to Dev Mode</h3>
@@ -47,16 +47,16 @@ export default function App() {
         
         <Router>
             <Routes>
-                <Route path="/" element={''}>
+                <Route path="/">
                     <Route path="index?/" element={<Home />} />
                     <Route path="login" element={<Login />} />
-                    <Route path="signup" element={<Signup />} />
+                    <Route path="register" element={<Register />} />
                     <Route path="upload" element={<FileUploader />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
                 
-                <Route path="/dev" element={<><h1>Developer</h1><Outlet /></>}>
-                    <Route path="index?/" element={dev()} />
+                <Route path="/console" element={<><h1>Developer Console Mode</h1><Outlet /></>}>
+                    <Route path="index?/" element={console()} />
                     <Route path="start" element={<h3>Start Dev Mode</h3>} />
                 </Route>
             </Routes>

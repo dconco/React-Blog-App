@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Helmet from "react-helmet";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
@@ -9,29 +9,49 @@ import "../index.css";
 import Logo from "../assets/icon.jpg";
 import Auth from "../assets/auth.png";
 
-export default function Signup() {
-    const [input, setInputs] = useState({});
+export default function Register() {
+    const [input, setInput] = useState({});
     
     const inputChange = (event) => {
         const name = event.name;
         const value = event.value;
-        setInputs(values => ({...values, [name]: value}))
+        setInput(values => ({...values, [name]: value}))
     }
     
-    const submit = (event) => {
+    const submit = async (event) => {
         event.preventDefault();
         
-        if (input.email === undefined || input.password === undefined) {
+        if (input.email == undefined || input.fullname == undefined) {
             alert("Fields must not be Empty!")
             return;
         }
-        if (input.password !== input.password2) {
+        if (input.password.length < 5) {
+            alert("Password should be greater than 5!")
+            return;
+        }
+        if (input.password !== input.confirmPwd) {
             alert("Password are not Matched!")
             return;
         }
-        
+
+        const url = '/api/v1/account/register';
         const res = JSON.stringify(input);
-        alert(res)
+
+
+        /* SEND POST REQUEST TO API */
+        const PostRequest = await axios({
+            'method': 'POST',
+            'data': res,
+            'url': url,
+            'baseURL': 'http://localhost/projects/react-blog/server'
+        });
+
+        console.log(PostRequest.data);
+        
+        if (PostRequest.status == 200 && PostRequest.statusText == "OK") {
+            const Inputs = document.querySelectorAll('input');
+            Inputs.forEach(values => values.value = "");
+        }
     }
     
     return (
@@ -66,8 +86,7 @@ export default function Signup() {
                                     <br />
                                     <div className='input'>
                                         <Icon icon='mdi:user-outline' className='iconify' />
-                                        <input id='fullname' name='fullname' type='text' onChange={(e) => inputChange(e.target)}
-                                        value={input.fullname} placeholder='Enter Fullname' />
+                                        <input id='fullname' name='fullname' type='text' onChange={(e) => inputChange(e.target)} placeholder='Enter Fullname' />
                                     </div>
                                 </div>
                                 
@@ -77,8 +96,7 @@ export default function Signup() {
                                     <br />
                                     <div className='input'>
                                         <Icon icon='mdi:user-outline' className='iconify' />
-                                        <input id='email' name='email' type='email' onChange={(e) => inputChange(e.target)}
-                                        value={input.email} placeholder='Enter Email' />
+                                        <input id='email' name='email' type='email' onChange={(e) => inputChange(e.target)} placeholder='Enter Email' />
                                     </div>
                                 </div>
                             </div>
@@ -90,8 +108,7 @@ export default function Signup() {
                                     <br />
                                     <div className='input'>
                                         <Icon icon='bx:lock' className='iconify' />
-                                        <input id='pwd' name='password' type='password' onChange={(e) => inputChange(e.target)} 
-                                        value={input.password} placeholder='Enter Password' />
+                                        <input id='pwd' name='password' type='password' onChange={(e) => inputChange(e.target)} placeholder='Enter Password' />
                                     </div>
                                 </div>
                                 
@@ -101,8 +118,7 @@ export default function Signup() {
                                     <br />
                                     <div className='input'>
                                         <Icon icon='bx:lock' className='iconify' />
-                                        <input id='pwd2' name='password2' type='password' onChange={(e) => inputChange(e.target)} 
-                                        value={input.password2} placeholder='Retype Password' />
+                                        <input id='pwd2' name='confirmPwd' type='password' onChange={(e) => inputChange(e.target)} placeholder='Retype Password' />
                                     </div>
                                 </div>
                             </div>
